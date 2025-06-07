@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "603963281864",
+    "project_id": "pokemon-31ab3",
+    "storage_bucket": "pokemon-31ab3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603963281864:android:661d27aa2e0326f95170fd",
+        "android_client_info": {
+          "package_name": "com.example.pokepedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDywz4XavejmjnGKqo5OCc_dxjRMRc04n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
