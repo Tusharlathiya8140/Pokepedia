@@ -41,12 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
             right: width * -0.1,
             child: Image.asset(
               'assets/images/pokeball.png',
-              width: 250,
+              width: width * 0.5,
               fit: BoxFit.fitHeight,
             ),
           ),
           Positioned(
-            top: height * 0.09,
+            top: height * 0.08,
             left: width * 0.03,
             child: Container(
               width: width * 0.95,
@@ -54,8 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Poke'pedia",
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                    "Poke'Pedia",
+                    style: TextStyle(
+                      fontSize: height * 0.04,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   IconButton(
                     onPressed: () async {
@@ -66,14 +69,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         (route) => false,
                       );
                     },
-                    icon: Icon(Icons.logout, color: Colors.black, size: 30),
+                    icon: Icon(
+                      Icons.logout,
+                      color: Colors.black,
+                      size: height * 0.037,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
           Positioned(
-            top: height * 0.16,
+            top: height * 0.15,
             bottom: 0,
             width: width,
             child: Column(
@@ -90,11 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (context, index) {
                             var type = pokepedia[index]['type'][0];
                             return Padding(
-                              padding: const EdgeInsets.all(6.0),
+                              padding: EdgeInsets.all(width * 0.015),
                               child: InkWell(
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(
+                                      width * 0.03,
+                                    ),
                                     color: type == 'Grass'
                                         ? Colors.greenAccent
                                         : type == 'Fire'
@@ -124,40 +133,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Stack(
                                     children: [
                                       Positioned(
-                                        bottom: -10,
-                                        right: -10,
+                                        bottom: width * -0.05,
+                                        right: width * -0.05,
                                         child: Image.asset(
                                           'assets/images/pokeball.png',
-                                          width: 100,
+                                          width: width * 0.25,
                                           fit: BoxFit.fitHeight,
                                         ),
                                       ),
                                       Positioned(
-                                        top: 15,
-                                        left: 10,
+                                        top: width * 0.04,
+                                        left: width * 0.03,
                                         child: Text(
                                           pokepedia[index]['name'],
                                           style: TextStyle(
-                                            fontSize: 15,
+                                            fontSize: height * 0.02,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),
                                         ),
                                       ),
                                       Positioned(
-                                        top: 40,
-                                        left: 10,
+                                        top: width * 0.11,
+                                        left: width * 0.02,
                                         child: Container(
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(
-                                              20,
+                                              width * 0.05,
                                             ),
                                             color: Colors.white30,
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              vertical: 4,
-                                              horizontal: 8,
+                                            padding: EdgeInsets.symmetric(
+                                              vertical: width * 0.007,
+                                              horizontal: width * 0.02,
                                             ),
                                             child: Text(
                                               type.toString(),
@@ -169,11 +178,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 5,
-                                        right: 5,
+                                        bottom: width * 0.01,
+                                        right: width * 0.01,
                                         child: CachedNetworkImage(
                                           imageUrl: pokepedia[index]['img'],
-                                          height: 110,
+                                          height: height * 0.11,
                                           fit: BoxFit.fill,
                                         ),
                                       ),

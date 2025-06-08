@@ -32,7 +32,11 @@ class _PokeDetailsState extends State<PokeDetails> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.arrow_back, color: Colors.white, size: 30),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: width * 0.08,
+              ),
             ),
           ),
           Positioned(
@@ -42,43 +46,49 @@ class _PokeDetailsState extends State<PokeDetails> {
               widget.pokedetails['name'],
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 30,
+                fontSize: height * 0.04,
                 color: Colors.white,
               ),
             ),
           ),
           Positioned(
-            top: height * 0.13,
+            top: height * 0.145,
             left: width * 0.04,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(width * 0.05),
                 color: Colors.black26,
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                padding: EdgeInsets.symmetric(
+                  vertical: width * 0.01,
+                  horizontal: width * 0.03,
+                ),
                 child: Text(
                   widget.pokedetails['type'].join(' , '),
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: height * 0.02,
+                  ),
                 ),
               ),
             ),
           ),
           Positioned(
-            bottom: height * 0.605,
-            right: width * -0.07,
+            bottom: height * 0.54,
+            right: width * -0.1,
             child: Image.asset(
               'assets/images/pokeball.png',
-              width: 200,
+              width: width * 0.6,
               fit: BoxFit.fitHeight,
             ),
           ),
           Positioned(
             bottom: height * 0.6,
-            left: width * 0.28,
+            right: width * 0.05,
             child: CachedNetworkImage(
               imageUrl: widget.pokedetails['img'],
-              height: 250,
+              height: height * 0.25,
               fit: BoxFit.fill,
             ),
           ),
@@ -90,37 +100,40 @@ class _PokeDetailsState extends State<PokeDetails> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(width * 0.08),
+                  topRight: Radius.circular(width * 0.08),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(width * 0.03),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20),
+                    SizedBox(height: height * 0.01),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(width * 0.01),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.3,
+                            width: width * 0.4,
                             child: Text(
                               'Name',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height * 0.028,
                                 color: Colors.blueGrey,
                               ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              widget.pokedetails['name'],
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                widget.pokedetails['name'],
+                                style: TextStyle(
+                                  fontSize: height * 0.028,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -128,26 +141,29 @@ class _PokeDetailsState extends State<PokeDetails> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(width * 0.01),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.3,
+                            width: width * 0.4,
                             child: Text(
                               'Height',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height * 0.028,
                                 color: Colors.blueGrey,
                               ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              widget.pokedetails['height'],
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                widget.pokedetails['height'],
+                                style: TextStyle(
+                                  fontSize: height * 0.028,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -155,26 +171,29 @@ class _PokeDetailsState extends State<PokeDetails> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(width * 0.01),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.3,
+                            width: width * 0.4,
                             child: Text(
                               'Weight',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height * 0.028,
                                 color: Colors.blueGrey,
                               ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              widget.pokedetails['weight'],
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                widget.pokedetails['weight'],
+                                style: TextStyle(
+                                  fontSize: height * 0.028,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -182,26 +201,29 @@ class _PokeDetailsState extends State<PokeDetails> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(width * 0.01),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.3,
+                            width: width * 0.4,
                             child: Text(
                               'Spawn Time',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height * 0.028,
                                 color: Colors.blueGrey,
                               ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              widget.pokedetails['spawn_time'],
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                widget.pokedetails['spawn_time'],
+                                style: TextStyle(
+                                  fontSize: height * 0.028,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -209,26 +231,29 @@ class _PokeDetailsState extends State<PokeDetails> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(width * 0.01),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.3,
+                            width: width * 0.4,
                             child: Text(
                               'Weaknesses',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height * 0.028,
                                 color: Colors.blueGrey,
                               ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              widget.pokedetails['weaknesses'].join(', '),
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Container(
+                              child: Text(
+                                widget.pokedetails['weaknesses'].join(', '),
+                                style: TextStyle(
+                                  fontSize: height * 0.028,
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -236,49 +261,40 @@ class _PokeDetailsState extends State<PokeDetails> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(width * 0.01),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: width * 0.3,
+                            width: width * 0.4,
                             child: Text(
                               'Evolution',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height * 0.028,
                                 color: Colors.blueGrey,
                               ),
                             ),
                           ),
                           widget.pokedetails['next_evolution'] != null
-                              ? SizedBox(
-                                  height: 30,
-                                  width: width * 0.5,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: widget
-                                        .pokedetails['next_evolution']
-                                        .length,
-                                    itemBuilder: (context, index) {
-                                      return Padding(
-                                        padding: const EdgeInsets.only(
-                                          right: 8.0,
-                                        ),
-                                        child: Text(
-                                          '${widget.pokedetails['next_evolution'][index]['name']},',
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            color: Colors.black87,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      );
-                                    },
+                              ? Expanded(
+                                  child: Text(
+                                    (widget.pokedetails['next_evolution']
+                                            as List)
+                                        .map<String>(
+                                          (e) => e['name'].toString(),
+                                        )
+                                        .join(', '),
+                                    style: TextStyle(
+                                      fontSize: height * 0.028,
+                                      color: Colors.black87,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 )
                               : Text(
                                   'Maxed Out',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: height * 0.028,
                                     color: Colors.black87,
                                     fontWeight: FontWeight.bold,
                                   ),
