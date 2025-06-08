@@ -1,6 +1,6 @@
 # pokepedia
 
-A new Flutter project for encyclopedic of  150+ Pokemons,
+A new Flutter project for encyclopedic of  150+ Pokemons, responsive for all app.
 In this Project use Firebase for login and registration also use lottie animation, and different packages like https for getting data From API.
 
 
