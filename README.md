@@ -1,16 +1,20 @@
 # pokepedia
 
-A new Flutter project.
+A new Flutter project for encyclopedic of  150+ Pokemons,
+In this Project use Firebase for login and registration also use lottie animation, and different packages like https for getting data From API.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h3>SCREENSHORT</h3>
+<table>
+  <tr>
+    <th>Login Screen</th>
+    <th>Registration Screen</th>
+    <th>Home Screen</th>
+    <th>Detail Screen</th>
+  <tr>
+    <td><img src = "https://github.com/Tusharlathiya8140/Pokepedia/blob/master/login.png?raw=true"></td>
+    <td><img src = "https://github.com/Tusharlathiya8140/Pokepedia/blob/master/Registration%20.png?raw=true"></td>
+    <td><img src = "https://github.com/Tusharlathiya8140/Pokepedia/blob/master/main.png?raw=true"></td>
+    <td><img src = "https://github.com/Tusharlathiya8140/Pokepedia/blob/master/detail.png?raw=true"></td>
+  </tr>
+</table>
