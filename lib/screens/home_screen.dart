@@ -1,8 +1,11 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokepedia/screens/login_screen.dart';
+import 'package:pokepedia/screens/pokemon_detals.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           Positioned(
-            top: -50,
-            right: -50,
+            top: height * -0.05,
+            right: width * -0.1,
             child: Image.asset(
               'assets/images/pokeball.png',
               width: 250,
@@ -43,15 +46,34 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Positioned(
-            top: 90,
-            left: 15,
-            child: Text(
-              "Poke'pedia",
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+            top: height * 0.09,
+            left: width * 0.03,
+            child: Container(
+              width: width * 0.95,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Poke'pedia",
+                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (route) => false,
+                      );
+                    },
+                    icon: Icon(Icons.logout, color: Colors.black, size: 30),
+                  ),
+                ],
+              ),
             ),
           ),
           Positioned(
-            top: 160,
+            top: height * 0.16,
             bottom: 0,
             width: width,
             child: Column(
@@ -69,93 +91,131 @@ class _HomeScreenState extends State<HomeScreen> {
                             var type = pokepedia[index]['type'][0];
                             return Padding(
                               padding: const EdgeInsets.all(6.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: type == 'Grass'
-                                      ? Colors.greenAccent
-                                      : type == 'Fire'
-                                      ? Colors.redAccent
-                                      : type == 'Water'
-                                      ? Colors.blueAccent
-                                      : type == 'Electric'
-                                      ? Colors.yellow
-                                      : type == 'Rock'
-                                      ? Colors.grey
-                                      : type == 'Ground'
-                                      ? Colors.brown
-                                      : type == 'Psychic'
-                                      ? Colors.indigo
-                                      : type == 'Fighting'
-                                      ? Colors.orange
-                                      : type == 'Bug'
-                                      ? Colors.lightGreen
-                                      : type == 'Ghost'
-                                      ? Colors.deepPurple
-                                      : type == 'Normal'
-                                      ? Colors.black26
-                                      : type == 'Poison'
-                                      ? Colors.deepPurpleAccent
-                                      : Colors.pink,
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Positioned(
-                                      bottom: -10,
-                                      right: -10,
-                                      child: Image.asset(
-                                        'assets/images/pokeball.png',
-                                        width: 100,
-                                        fit: BoxFit.fitHeight,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 15,
-                                      left: 10,
-                                      child: Text(
-                                        pokepedia[index]['name'],
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
+                              child: InkWell(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: type == 'Grass'
+                                        ? Colors.greenAccent
+                                        : type == 'Fire'
+                                        ? Colors.redAccent
+                                        : type == 'Water'
+                                        ? Colors.blueAccent
+                                        : type == 'Electric'
+                                        ? Colors.yellow
+                                        : type == 'Rock'
+                                        ? Colors.grey
+                                        : type == 'Ground'
+                                        ? Colors.brown
+                                        : type == 'Psychic'
+                                        ? Colors.indigo
+                                        : type == 'Fighting'
+                                        ? Colors.orange
+                                        : type == 'Bug'
+                                        ? Colors.lightGreen
+                                        : type == 'Ghost'
+                                        ? Colors.deepPurple
+                                        : type == 'Normal'
+                                        ? Colors.black26
+                                        : type == 'Poison'
+                                        ? Colors.deepPurpleAccent
+                                        : Colors.pink,
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                        bottom: -10,
+                                        right: -10,
+                                        child: Image.asset(
+                                          'assets/images/pokeball.png',
+                                          width: 100,
+                                          fit: BoxFit.fitHeight,
                                         ),
                                       ),
-                                    ),
-                                    Positioned(
-                                      top: 40,
-                                      left: 10,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            20,
+                                      Positioned(
+                                        top: 15,
+                                        left: 10,
+                                        child: Text(
+                                          pokepedia[index]['name'],
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
                                           ),
-                                          color: Colors.white30,
                                         ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            vertical: 4,
-                                            horizontal: 8,
+                                      ),
+                                      Positioned(
+                                        top: 40,
+                                        left: 10,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                            color: Colors.white30,
                                           ),
-                                          child: Text(
-                                            type.toString(),
-                                            style: TextStyle(
-                                              color: Colors.white,
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              vertical: 4,
+                                              horizontal: 8,
+                                            ),
+                                            child: Text(
+                                              type.toString(),
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    Positioned(
-                                      bottom: 5,
-                                      right: 5,
-                                      child: CachedNetworkImage(
-                                        imageUrl: pokepedia[index]['img'],
-                                        height: 110,
-                                        fit: BoxFit.fill,
+                                      Positioned(
+                                        bottom: 5,
+                                        right: 5,
+                                        child: CachedNetworkImage(
+                                          imageUrl: pokepedia[index]['img'],
+                                          height: 110,
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PokeDetails(
+                                        tag: index,
+                                        pokedetails: pokepedia[index],
+                                        color: type == 'Grass'
+                                            ? Colors.greenAccent
+                                            : type == 'Fire'
+                                            ? Colors.redAccent
+                                            : type == 'Water'
+                                            ? Colors.blueAccent
+                                            : type == 'Electric'
+                                            ? Colors.amber
+                                            : type == 'Rock'
+                                            ? Colors.grey
+                                            : type == 'Ground'
+                                            ? Colors.brown
+                                            : type == 'Psychic'
+                                            ? Colors.indigo
+                                            : type == 'Fighting'
+                                            ? Colors.orange
+                                            : type == 'Bug'
+                                            ? Colors.lightGreen
+                                            : type == 'Ghost'
+                                            ? Colors.deepPurple
+                                            : type == 'Normal'
+                                            ? Colors.grey
+                                            : type == 'Poison'
+                                            ? Colors.deepPurpleAccent
+                                            : Colors.pink,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  );
+                                },
                               ),
                             );
                           },
