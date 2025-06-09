@@ -13,6 +13,8 @@ In this Project use Firebase for login and registration also use lottie animatio
     <td><img src = "https://github.com/Tusharlathiya8140/Pokepedia/blob/master/login.png?raw=true" width="200" height="390"></td>
     <td><img src = "https://github.com/Tusharlathiya8140/Pokepedia/blob/master/Registration%20.png?raw=true" width="200" height="390"></td>
   </tr>
+</table>
+<table>
   <tr>
     <th>Home Screen</th>
     <th>Search Option</th>
