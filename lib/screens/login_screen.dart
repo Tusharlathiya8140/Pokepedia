@@ -166,6 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: EdgeInsets.all(screenHeight * 0.02),
                   child: LoadingAnimatedButton(
+                    height: screenHeight * 0.06,
                     child: Text(
                       'Login',
                       style: TextStyle(
